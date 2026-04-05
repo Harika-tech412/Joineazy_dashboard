@@ -31,19 +31,15 @@ npm test
 npm run build
 ```
 
+## Live Demo
+🔗 https://monumental-valkyrie-4b557f.netlify.app
+
 ## Deploy (Netlify / Vercel)
 
 - **Netlify**: connect the repo, build command `npm run build`, publish directory `build`. SPA fallback is included via `public/_redirects`.
 - **Vercel**: import the project; default CRA settings (`build` output) work.
 
-## Docker (optional)
 
-```bash
-docker build -t joineazy-dashboard .
-docker run -p 8080:80 joineazy-dashboard
-```
-
-Then open `http://localhost:8080`.
 
 ## Folder structure (overview)
 
