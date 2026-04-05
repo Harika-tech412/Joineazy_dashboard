@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { AppProvider, useApp } from './context/AppContext';
+import LoginScreen from './components/auth/LoginScreen';
+import AppLayout from './components/layout/AppLayout';
+import AdminSidebar from './components/layout/AdminSidebar';
+import StudentSidebar from './components/layout/StudentSidebar';
+import AdminDashboard from './components/admin/AdminDashboard';
+import StudentDashboard from './components/student/StudentDashboard';
 
-function App() {
+function Shell() {
+  const { currentUser } = useApp();
+
+  if (!currentUser) {
+    return <LoginScreen />;
+  }
+
+  const sidebar = currentUser.role === 'student' ? <StudentSidebar /> : <AdminSidebar />;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppLayout sidebar={sidebar}>
+      {currentUser.role === 'student' ? <StudentDashboard /> : <AdminDashboard />}
+    </AppLayout>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <AppProvider>
+      <Shell />
+    </AppProvider>
+  );
+}
