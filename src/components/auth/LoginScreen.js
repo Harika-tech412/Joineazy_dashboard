@@ -10,8 +10,8 @@ export default function LoginScreen() {
       <div className="mb-10 text-center">
         <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Joineazy</h1>
         <p className="mt-2 max-w-md text-sm text-slate-300">
-          Assignment &amp; review dashboard — demo login (no backend). Choose a role to explore student
-          or professor views. Data is stored locally in your browser.
+          Assignment &amp; review dashboard. Choose a role to explore student
+          or professor views.
         </p>
       </div>
 
